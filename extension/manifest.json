@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "Chrome Extension Template with Calendar sign in / sign out",
+    "version": "0.1",
+    "description": "Chrome Extension Template",
+    "icons": {
+      "16": "images/icon-16.png",
+      "48": "images/icon-48.png",
+      "128": "images/icon-128.png"
+    },
+    "background": {
+      "service_worker": "service-worker.js"
+    },
+    "action": {
+      "default_popup": "buttons.html"
+    },
+    "permissions": ["storage", "identity" ],
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+    },
+    "oauth2": {
+      "client_id": "648971233458-sfifl6nt966j7mm58u66p332t5mpabvb.apps.googleusercontent.com",
+      "scopes": ["https://www.googleapis.com/auth/calendar.events.readonly"]
+    }
+  }
+  

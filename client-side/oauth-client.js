@@ -29,19 +29,29 @@ function initiateOAuth() {
     })
     .catch(error => console.error('Error starting OAuth flow:', error));
 
-    // Extract the authorization code from the redirect URL
     console.log("authorization rec")
-    // if (chrome.runtime.lastError || !redirectUrl) {
-    //   // Handle error or user cancellation
-    //   console.log("error: ", chrome.runtime.lastError)
-    //   return;
-    // }
-    const url = new URL(redirectUrl);
-    const authorizationCode = url.searchParams.get('code');
-    console.log(url, authorizationCode)
-    if (authorizationCode) {
-      exchangeAuthorizationCodeForToken(authorizationCode);
-    }
+    // Use the `launchWebAuthFlow` method to initiate the OAuth flow
+    console.log("chrome:", chrome)
+    console.log("chrome identity:", chrome.identity)
+    chrome.identity.launchWebAuthFlow({
+      url: authUrl,
+      interactive: true
+    }, function(redirectUrl) {
+      console.log("redirect url:", redirectUrl)
+      // Extract the authorization code from the redirect URL
+    
+      if (chrome.runtime.lastError || !redirectUrl) {
+        // Handle error or user cancellation
+        console.log("error: ", chrome.runtime.lastError)
+        return;
+      }
+      const url = new URL(redirectUrl);
+      const authorizationCode = url.searchParams.get('code');
+      console.log("auth code:", authorizationCode)
+      if (authorizationCode) {
+        exchangeAuthorizationCodeForToken(authorizationCode);
+      }
+    })
   }
 
 function exchangeAuthorizationCodeForToken(authorizationCode) {

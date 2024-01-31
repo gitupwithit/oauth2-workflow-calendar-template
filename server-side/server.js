@@ -35,7 +35,7 @@ function initiateOAuthFlow(res) {
   // Create the OAuth request URL
   let authUrl = `${oauth2Endpoint}?client_id=${CLIENT_ID}&response_type=code`;
   authUrl += `&scope=${encodeURIComponent('https://www.googleapis.com/auth/calendar.events.readonly')}`;
-  authUrl += `&redirect_uri=${encodeURIComponent('https://afppeaambpilopehbeonkbmgcjejhakm.chromiumapp.org')}`;
+  authUrl += `&redirect_uri=${encodeURIComponent('https://bicddgbmlcpgchmcfjaahfdmmejbaahe.chromiumapp.org/')}`;
   authUrl += `&prompt=consent`;
   authUrl += `&access_type=offline`;
 
