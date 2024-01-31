@@ -20,19 +20,22 @@ document.getElementById('signout_button_g').addEventListener('click', function()
 
 // begin OAuth
 function initiateOAuth() {
+  console.log("client starting oauth")
   fetch('http://34.0.45.182:8000/start-oauth')
     .then(response => response.text())
     .then(authUrl => {
-        window.location.href = authUrl; // Redirect the user to the auth URL
+      console.log("authUrl: ", authUrl)
+      window.open().location.href = authUrl; // Redirect the user to the auth URL
     })
     .catch(error => console.error('Error starting OAuth flow:', error));
 
     // Extract the authorization code from the redirect URL
-    if (chrome.runtime.lastError || !redirectUrl) {
-      // Handle error or user cancellation
-      console.log("error: ", chrome.runtime.lastError)
-      return;
-    }
+    console.log("authorization rec")
+    // if (chrome.runtime.lastError || !redirectUrl) {
+    //   // Handle error or user cancellation
+    //   console.log("error: ", chrome.runtime.lastError)
+    //   return;
+    // }
     const url = new URL(redirectUrl);
     const authorizationCode = url.searchParams.get('code');
     console.log(url, authorizationCode)
