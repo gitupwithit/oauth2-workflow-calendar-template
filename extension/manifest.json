@@ -19,8 +19,9 @@
       "extension_pages": "script-src 'self'; object-src 'self'"
     },
     "oauth2": {
-      "client_id": "648971233458-sfifl6nt966j7mm58u66p332t5mpabvb.apps.googleusercontent.com",
+      "client_id": "648971233458-m39e3ifo0nn4i5cv9g6tcgpa3p7oddp8.apps.googleusercontent.com",
       "scopes": ["https://www.googleapis.com/auth/calendar.events.readonly"]
-    }
+    },
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg0bcFjOQN8ZORImQYGTfqQUcaGMn5I/zAZ8Z5GRfAUpTe44hN27TTOC8masv2Syj/zNvB40e9E6lxv3La6kBOcbPEPJHC13/y/iPqnvcnflSq9hQYhlM/dloiQztlhqtP2L274xQR6XCmONBTRDCRI28gtppUqq44OU85eTCrxPYkNfr0xmvG69MdJEvxOjtficAYhmWwv9r0qbEjTziIczeR5SAoMFZbTa0tg/iCOg72ZlFUKb5x3zVSlJFBrdF4ObV9dd0nHg7J2OaC/GMrIuAyAATVd3pXC/ilFKtRxeM9yIlGKZqD/3RBiPzmkiBnQ1zwyiGtYMYp3pLM8xFxQIDAQAB"
   }
   

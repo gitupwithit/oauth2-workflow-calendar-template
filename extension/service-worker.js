@@ -9,7 +9,7 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "userSignIn") {
         console.log("user sign in message rec")
-        initiateOAuth();
+        initiateOAuth();  
     }
     // if (message.action === "validateToken") {
     //   validateToken(message.token).then(isValid => {
@@ -28,7 +28,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 // begin OAuth
 function initiateOAuth() {
   console.log("client starting oauth")
-  fetch('http://34.0.45.182:8000/start-oauth')
+  fetch('http://34.130.53.248:8000/start-oauth')
     .then(response => response.text())
     .then(authUrl => {
       console.log("authUrl: ", authUrl)
@@ -38,8 +38,8 @@ function initiateOAuth() {
 
     console.log("authorization rec")
     // Use the `launchWebAuthFlow` method to initiate the OAuth flow
-    // console.log("chrome:", chrome)
-    // console.log("chrome identity:", chrome.identity)
+    console.log("chrome:", chrome)
+    console.log("chrome identity:", chrome.identity)
     chrome.identity.launchWebAuthFlow({
       url: authUrl,
       interactive: true
@@ -63,7 +63,7 @@ function initiateOAuth() {
 
 function exchangeAuthorizationCodeForToken(authorizationCode) {
   console.log("send to server for token")
-  fetch('http://34.0.45.182:8000/oauth2callback', {
+  fetch('http://34.130.53.248:8000/oauth2callback', {
     method: 'POST', // or 'GET', depending on how your server expects to receive the data
     headers: {
       'Content-Type': 'application/json'
